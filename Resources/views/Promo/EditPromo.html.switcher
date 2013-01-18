@@ -1,0 +1,25 @@
+<?php $view->extend('QwerPromoBundle:Promo:Layout.html.switcher') ?>
+
+<?php $view['slots']->start('content_first') ?>
+
+	<?php /*print $view['actions']->render('AuthenticationBundle:Widget:BarRegistrationServiceProviderWizardTab', array ( 'tab' => 'credentials')) */?>
+	
+	<div class="ui-body ui-body-d">
+		<h3>
+			Edit Promo
+		</h3>
+		<div data-theme="c">
+			<form action="<?php print $view['router']->generate('UpdatePromo', array('id' => $entity->getId())) ?>" 
+                                method="post" data-ajax="false">
+				<div data-role="content">
+                                        <?php echo $view['form']->row($form['startDate']) ?>
+					<?php echo $view['form']->rest($form) ?>
+					<div data-role="controlgroup" data-type="horizontal">
+                                            <input type="submit" id="submit" 
+                                                   value="<?php echo $view['translator']->trans('promo.update.form.submit') ?>" />
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+<?php $view['slots']->stop() ?>

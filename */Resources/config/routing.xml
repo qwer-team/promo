@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<routes xmlns="http://symfony.com/schema/routing"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
+
+    <route id="Promo" pattern="/promo">
+        <default key="_controller">QwerPromoBundle:Promo:Index</default>
+    </route>
+       
+    <route id="NewPromo" pattern="/promo/new">
+        <default key="_controller">QwerPromoBundle:Promo:New</default>
+    </route>
+
+    <route id="CreatePromo" pattern="/promo/create">
+        <default key="_controller">QwerPromoBundle:Promo:Create</default>
+    </route>
+
+    <route id="UpdatePromo" pattern="/promo/{id}/update">
+        <default key="_controller">QwerPromoBundle:Promo:Update</default>
+    </route>
+    
+    <route id="EditPromo" pattern="/promo/{id}/edit">
+        <default key="_controller">QwerPromoBundle:Promo:Edit</default>
+    </route>
+    
+</routes>

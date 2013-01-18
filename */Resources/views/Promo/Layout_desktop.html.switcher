@@ -1,0 +1,9 @@
+<?php $view->extend('QwerPromoBundle::Page.html.switcher') ?>
+
+<?php $view['slots']->set('title', "Promo create"); ?>
+
+<?php $view['slots']->start('content') ?>
+	<div class="ui-body" style="width: 600px;">
+		<?php $view['slots']->output('content_first') ?>	            
+	</div>
+<?php $view['slots']->stop() ?>

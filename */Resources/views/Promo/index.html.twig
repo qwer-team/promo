@@ -1,0 +1,67 @@
+<h1>Promo list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Promo_id</th>
+            <th>Sp_id</th>
+            <th>Promo_loc_id</th>
+            <th>Promo_title</th>
+            <th>Promo_body</th>
+            <th>Promo_disclaimer</th>
+            <th>Promo_start_date</th>
+            <th>Datetime</th>
+            <th>Promo_end_date</th>
+            <th>Promo_amount</th>
+            <th> discount_type</th>
+            <th>Promo_qty</th>
+            <th>Promo_status</th>
+            <th>Promo_image</th>
+            <th>Promo_service_id</th>
+            <th> promo_limit_qty</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('promo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.promoid }}</td>
+            <td>{{ entity.spid }}</td>
+            <td>{{ entity.promolocid }}</td>
+            <td>{{ entity.promotitle }}</td>
+            <td>{{ entity.promobody }}</td>
+            <td>{{ entity.promodisclaimer }}</td>
+            <td>{% if entity.promostartdate %}{{ entity.promostartdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.datetime }}</td>
+            <td>{% if entity.promoenddate %}{{ entity.promoenddate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            <td>{{ entity.promoamount }}</td>
+            <td>{{ entity. discounttype }}</td>
+            <td>{{ entity.promoqty }}</td>
+            <td>{{ entity.promostatus }}</td>
+            <td>{{ entity.promoimage }}</td>
+            <td>{{ entity.promoserviceid }}</td>
+            <td>{{ entity. promolimitqty }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('promo_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('promo_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('promo_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

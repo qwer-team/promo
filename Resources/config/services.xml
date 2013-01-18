@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+  <services>
+      
+    <service id="listener.CreatePromo" class="Qwer\PromoBundle\Listener\CreatePromoListener">
+      <call method="setContainer">
+        <argument type="service" id="service_container" />
+      </call>
+      <tag name="kernel.event_listener" event="create.CreatePromo" method="onPromoEvent" />
+    </service>
+
+    <service id="listener.UpdatePromo" class="Qwer\PromoBundle\Listener\UpdatePromoListener">
+      <call method="setContainer">
+        <argument type="service" id="service_container" />
+      </call>
+      <tag name="kernel.event_listener" event="update.UpdatePromo" method="onPromoEvent" />
+    </service>
+
+    <service id="listener.DeletePromo" class="Qwer\PromoBundle\Listener\DeletePromoListener">
+      <call method="setContainer">
+        <argument type="service" id="service_container" />
+      </call>
+      <tag name="kernel.event_listener" event="delete.DeletePromo" method="onPromoEvent" />
+    </service>
+    
+  </services>
+  
+</container>

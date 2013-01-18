@@ -1,0 +1,7 @@
+parameters:
+#    qwer_promo.example.class: Qwer\PromoBundle\Example
+
+services:
+#    qwer_promo.example:
+#        class: %qwer_promo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
