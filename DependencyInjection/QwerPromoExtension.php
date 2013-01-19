@@ -26,7 +26,12 @@ class QwerPromoExtension extends Extension
         $loader->load('services.yml');
         */
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('services.xml');
+        $env = $container->getParameter("kernel.environment");
+        $envPostfix = "";
+        if($env != "prod"){
+            echo $envPostfix = "_".$env;
+        }
+        $loader->load('services'.$envPostfix.'.xml');
         $loader->load('repositories.xml');
     }
 }
