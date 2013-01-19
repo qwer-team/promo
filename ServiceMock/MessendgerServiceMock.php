@@ -1,6 +1,7 @@
 <?php
 
 namespace Qwer\PromoBundle\ServiceMock;
+use MarketFusion\Bundle\DataBundle\Entity\User;
 use Symfony\Component\DependencyInjection\ContainerAware;
 /**
  * Description of MessendgerServiceMock
@@ -10,7 +11,8 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 class MessendgerServiceMock extends ContainerAware {
     /**
      *
-     * $url = $this->get('Messenger')->message($user, array($contact), $subject, $content);
+     * $url = $this->get('Messenger')
+     *             ->message($user, array($contact), $subject, $content);
      *
      * @param MarketFusion\Bundle\DataBundle\Entity\User $user
      * @param array ( MarketFusion\Bundle\DataBundle\Entity\UserContact $contact )
