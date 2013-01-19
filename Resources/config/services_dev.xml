@@ -6,4 +6,5 @@
     <imports>
         <import resource="services.xml"/>
     </imports>
+    
 </container>
