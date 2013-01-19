@@ -10,11 +10,21 @@ use Symfony\Component\DependencyInjection\ContainerAware;
  */
 class StorageServiceMock extends ContainerAware {
     private $folder;
+    /**
+     * $url = $this->get('Storage')->save($pathToTmpFile);
+     * 
+     * @param string $pathToTmpFile
+     * 
+     * @return string
+     */
     public function save($pathToTmpFile)
     {
         $file = new File($pathToTmpFile);
-        $type = $file->getMimeType();
-        $fileName = "/".rand(0,100000);
+       
+        $fileName = rand(0,100000).".png";
+        $file->move($this->folder, $fileName);
+        
+        return "/bundles/qwerpromo/images/".$fileName;
     }
     
     public function setFolder($folder) {
