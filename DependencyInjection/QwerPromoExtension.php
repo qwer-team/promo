@@ -29,7 +29,7 @@ class QwerPromoExtension extends Extension
         $env = $container->getParameter("kernel.environment");
         $envPostfix = "";
         if($env != "prod"){
-            echo $envPostfix = "_".$env;
+            $envPostfix = "_".$env;
         }
         $loader->load('services'.$envPostfix.'.xml');
         $loader->load('repositories.xml');
