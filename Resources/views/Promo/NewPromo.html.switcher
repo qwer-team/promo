@@ -8,6 +8,8 @@
 		<h3>
 			Create new Promo 
 		</h3>
+                <a href="<?php echo $view['router']->generate('Promo') ?>">
+                    back to promotion list</a>
 		<div data-theme="c">
 			<form action="<?php print $view['router']->generate('CreatePromo') ?>" method="post" data-ajax="false">
 				<div data-role="content">

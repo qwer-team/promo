@@ -4,7 +4,7 @@
 
 	<div class="ui-body ui-body-d">
 		<h3>
-			My Promotions
+			My Promotions 
 		</h3>
                 <div>
                     <div style="float: left; margin: 0 10px;">
@@ -39,10 +39,8 @@
                                     </tr>
                                     <tr>
                                         <td >
-                                            <a href="#popupBasic" data-rel="popup">
-                                                <?php echo $entity->getTitle() ?>
-                                                <?php echo ", Location?" ?>
-                                            </a>
+                                            <?php echo $entity->getTitle() ?>
+                                            <?php echo ", Location?" ?>
                                         </td>        
                                        <td >
                                             <?php echo $entity->getQuantity() ?>
@@ -52,34 +50,12 @@
                                         <td  colspan="2" style="text-align: center">
                                             <?php echo $entity->getEndDate()->format("m/d/y h:m a") ?>
                                         </td>
+                                        <td rowspan="3" style="width: 50px;">
+                                            <a href="<?php echo $view['router']->generate('EditPromo', array('id'=>$entity->getId())) ?>">
+                                                edit</a>
+                                        </td>                                         
                                     </tr>
                                 </table>
-
-<div data-role="popup" id="popupBasic">
-    
-                <ul data-role="listview" data-divider-theme="b" data-inset="true">
-                    <li data-theme="">
-                        <a href="#" data-transition="none">
-                            Send
-                        </a>
-                    </li>
-                    <li data-theme="c">
-                        <a href="#" data-transition="none">
-                            Post to ...
-                        </a>
-                    </li>
-                    <li data-theme="">
-                        <a href="<?php echo $view['router']->generate('EditPromo', array('id'=>$entity->getId())) ?>" data-transition="none">
-                            Edit
-                        </a>
-                    </li>
-                    <li data-theme="">
-                        <a href="#" data-transition="none">
-                            Delete
-                        </a>
-                    </li>
-                </ul> 
-</div>    
                             </div>
                             <?php endforeach; ?>
                         </div>

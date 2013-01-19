@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd"
+                  xmlns:gedmo="http://gediminasm.org/schemas/orm/doctrine-extensions-mapping">
+
+    <entity name="Qwer\PromoBundle\Entity\Promo" table="nf_promotion"
+            repository-class="Qwer\PromoBundle\Repository\PromoRepository">
+        <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <field name="spId" type="integer" column="sp_id" nullable="true"/>
+        <one-to-many field="sp" target-entity="MarketFusion\Bundle\DataBundle\Entity\User" mapped-by="id">
+            <join-column name="sp_id" referenced-column-name="id" />            
+        </one-to-many>
+        <field name="locId" type="integer" column="loc_id" nullable="true"/>
+<!--        <one-to-many field="promoLocation" target-entity="some Entity" mapped-by="id">
+            <join-column name="locId" referenced-column-name="id" />            
+        </one-to-many>  -->
+        <field name="title" type="string" column="title" length="200"/>
+        <field name="body" type="string" column="body" length="200"/>
+        <field name="disclaimer" type="string" column="disclaimer" length="500"/>
+        <field name="startDate" type="datetime" column="start_date"/>
+        <field name="datetime" type="string" column="datetime" length="255"/>
+        <field name="endDate" type="datetime" column="end_date"/>
+        <field name="amount" type="integer" column="amount"/>
+        <field name="discountType" type="smallint" column="discount_type"/>
+        <field name="quantity" type="integer" column="quantity"/>
+        <field name="status" type="smallint" column="status"/>
+        <field name="image" type="string" column="image" length="255"/>
+        <field name="serviceId" type="integer" column="service_id"/>
+        <one-to-many field="userService" 
+                     target-entity="MarketFusion\Bundle\DataBundle\Entity\UserBusinessService" mapped-by="id">
+            <join-column name="promo_service_id" referenced-column-name="id" />            
+        </one-to-many>
+        <field name="limitQuantity" type="integer" column="limit_quantity"/>      
+
+        <lifecycle-callbacks/>
+    </entity>
+</doctrine-mapping>

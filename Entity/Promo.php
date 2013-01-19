@@ -6,140 +6,99 @@ use Doctrine\ORM\Mapping as ORM;
 use MarketFusion\Bundle\DataBundle\Entity\User;
 
 /**
- * Promo
- *
- * @ORM\Table()
- * @ORM\Entity
+ * Qwer\PromoBundle\Entity\Promo
  */
 class Promo
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var integer $id
      */
     private $id;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="sp_id", type="integer", nullable=true )
+     * @var integer $spId
      */
     private $spId;
     /**
-     * @ORM\ManyToOne(targetEntity="MarketFusion\Bundle\DataBundle\Entity\User", inversedBy="id")
-     * @ORM\JoinColumn(name="sp_id", referencedColumnName="id")
+     * @var MarketFusion\Bundle\DataBundle\Entity\User
      */
     private $sp;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="promo_loc_id", type="integer", nullable=true )
+     * @var integer $locId
      */
     private $locId;
     /*
-     * @ORM\ManyToOne(targetEntity="???", inversedBy="id")
-     * @ORM\JoinColumn(name="promo_loc_id", referencedColumnName="id")
+     * @var ???
      */
 //    private $promoLocation;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="promo_title", type="string", length=200)
+     * @var string $title
      */
     private $title;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="promo_body", type="string", length=200)
      */
     private $body;
 
     /**
      * @var string
-     *
-     * @ORM\Column(name="promo_disclaimer", type="string", length=500)
      */
     private $disclaimer;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="promo_start_date", type="datetime")
+     * @var \DateTime $startDate
      */
     private $startDate;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="datetime", type="string", length=255)
+     * @var string $datetime
      */
     private $datetime;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="promo_end_date", type="datetime")
+     * @var \DateTime $endDate
      */
     private $endDate;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="promo_amount", type="integer")
+     * @var integer $amount
      */
     private $amount;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="discount_type", type="smallint")
+     * @var integer $discountType
      */
     private $discountType;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="promo_qty", type="integer")
+     * @var integer $quantity
      */
     private $quantity;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="promo_status", type="smallint")
+     * @var integer $status
      */
     private $status;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="promo_image", type="string", length=255)
+     * @var string $image
      */
     private $image;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="promo_service_id", type="integer", nullable=true )
+     * @var integer $serviceId
      */
     private $serviceId;
     /**
-     * @ORM\ManyToOne(targetEntity="MarketFusion\Bundle\DataBundle\Entity\UserBusinessService", inversedBy="id")
-     * @ORM\JoinColumn(name="promo_service_id", referencedColumnName="id")    
-     * @var type 
+     * @var MarketFusion\Bundle\DataBundle\Entity\UserBusinessService
      */
     private $userService;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="promo_limit_qty", type="integer")
+     * @var integer $limitQuantity
      */
     private $limitQuantity;
     
