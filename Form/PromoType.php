@@ -39,11 +39,11 @@ class PromoType extends AbstractType implements ContainerAwareInterface
             ->add('endDate', 'DatePicker')
             ->add('amount')
             ->add('discountType')
-            ->add('qty')
-            ->add('status')
+            ->add('quantity')
+//            ->add('status')
             ->add('image')
 //            ->add('userService')
-            ->add('limitQty')
+            ->add('limitQuantity')
         ;
     }
 
