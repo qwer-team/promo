@@ -61,17 +61,14 @@ class PromoController extends Controller
         $form->bindRequest($request);
         
         if ($form->isValid()) {
-            
-            $event = new PromoEvent($entity);
+            $user = $this->container->get('security.context')
+                                    ->getToken()->getUser();
+            $event = new PromoEvent($entity, $user);
             $this->get('event_dispatcher')
                  ->dispatch('create.CreatePromo', $event);
-            
-            return $this->redirect(
-                        $this->generateUrl(
-                                                'EditPromo', 
-                                                array('id' => $entity->getId())
-                                            )
-                                 );
+            $params =  array('id' => $entity->getId());
+            $url = $this->generateUrl('EditPromo', $params);
+            return $this->redirect($url);
         }
 
         $template = 'QwerPromoBundle:Promo:NewPromo.html.switcher';

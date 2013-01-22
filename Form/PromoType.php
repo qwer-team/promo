@@ -59,7 +59,7 @@ class PromoType extends AbstractType implements ContainerAwareInterface
 
     public function getName()
     {
-        return 'qwer_bundle_promotype';
+        return 'qwerBundlePromotype';
     }
 
     public function setContainer(ContainerInterface $container = null) {
