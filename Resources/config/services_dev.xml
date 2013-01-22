@@ -14,6 +14,9 @@
             <call method="setFolder">
                 <argument type="string" >%kernel.root_dir%/../web/bundles/qwerpromo/images</argument>
             </call>
+            <call method="setrelUrl">
+                <argument type="string" >/bundles/qwerpromo/images/</argument>
+            </call>
         </service>
         <service id="Messenger" class="Qwer\PromoBundle\ServiceMock\MessengerServiceMock">
             <call method="setContainer">

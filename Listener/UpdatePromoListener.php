@@ -18,11 +18,9 @@ class UpdatePromoListener extends ContainerAware {
                                      ->save($imageObject->getPathname());
             $promo->setImage($image);
         }
-        $this->container->get('doctrine.orm.default_entity_manager')
-                        ->persist($promo);
-        $this->container->get('doctrine.orm.default_entity_manager')
-                        ->flush();
+        $entityManager = $this->container
+                          ->get('doctrine.orm.default_entity_manager');
+        $entityManager->persist($promo);
+        $entityManager->flush();
     }
 }
-
-?>

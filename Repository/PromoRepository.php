@@ -26,10 +26,4 @@ class PromoRepository extends EntityRepository{
     {
         return $this->findBy(array('spId' => $userId));
     }
-    
-    public function findAvailableUserServices(User $user){
-        $this->createQueryBuilder("UserBusinessService");
-    }
 }
-
-?>
