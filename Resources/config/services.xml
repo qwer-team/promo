@@ -27,6 +27,12 @@
       <tag name="kernel.event_listener" event="delete.DeletePromo" method="onPromoEvent" />
     </service>
     
+    <service id="type.promo" class="Qwer\PromoBundle\Form\PromoType">
+      <call method="setContainer">
+        <argument type="service" id="service_container" />
+      </call>
+    </service>
+    
   </services>
   
 </container>

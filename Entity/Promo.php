@@ -4,6 +4,8 @@ namespace Qwer\PromoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use MarketFusion\Bundle\DataBundle\Entity\User;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Validator\ExecutionContext;
 
 /**
  * Qwer\PromoBundle\Entity\Promo
@@ -54,11 +56,6 @@ class Promo
     private $startDate;
 
     /**
-     * @var string $datetime
-     */
-    private $datetime;
-
-    /**
      * @var \DateTime $endDate
      */
     private $endDate;
@@ -81,12 +78,18 @@ class Promo
     /**
      * @var integer $status
      */
-    private $status;
+    private $status = 1;
 
     /**
      * @var string $image
      */
     private $image;
+    
+    /**
+     *
+     * @var UploadedFile $imageObject
+     */
+    private $imageObject = null;
 
     /**
      * @var integer $serviceId
@@ -101,6 +104,8 @@ class Promo
      * @var integer $limitQuantity
      */
     private $limitQuantity;
+    
+    
     
     public function getId() {
         return $this->id;
@@ -164,14 +169,6 @@ class Promo
 
     public function setStartDate($startDate) {
         $this->startDate = $startDate;
-    }
-
-    public function getDatetime() {
-        return $this->datetime;
-    }
-
-    public function setDatetime($datetime) {
-        $this->datetime = $datetime;
     }
 
     public function getEndDate() {
@@ -245,5 +242,27 @@ class Promo
     public function setLimitQuantity($limitQuantity) {
         $this->limitQuantity = $limitQuantity;
     }
+    /**
+     * 
+     * @return \Symfony\Component\HttpFoundation\File\UploadedFile
+     */
+    public function getImageObject() {
+        return $this->imageObject;
+    }
 
+    public function setImageObject(UploadedFile $imageObject) {
+        $this->imageObject = $imageObject;
+    }
+
+    public function isValidPromotionLimitation(ExecutionContext $context){        
+        
+        if($this->limitQuantity=="" && $this->endDate==""){
+            
+            $propertyPath = $context->getPropertyPath() . '.limitQuantity';
+
+            $context->setPropertyPath($propertyPath);
+
+            $context->addViolation('At list one limitation should be specified', array(), null);
+        }
+    }
 }

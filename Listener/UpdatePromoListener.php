@@ -10,8 +10,18 @@ class UpdatePromoListener extends ContainerAware {
     
     public function onPromoEvent(PromoEvent $event)
     {
-            $this->container->get('doctrine.orm.default_entity_manager')->persist($event->getPromo());
-            $this->container->get('doctrine.orm.default_entity_manager')->flush();
+        $promo = $event->getPromo();
+        if(!is_null($promo->getImageObject()))
+        {
+            $imageObject = $promo->getImageObject();
+            $image = $this->container->get("Storage")
+                                     ->save($imageObject->getPathname());
+            $promo->setImage($image);
+        }
+        $this->container->get('doctrine.orm.default_entity_manager')
+                        ->persist($promo);
+        $this->container->get('doctrine.orm.default_entity_manager')
+                        ->flush();
     }
 }
 

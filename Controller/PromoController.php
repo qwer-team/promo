@@ -25,11 +25,10 @@ class PromoController extends Controller
      * @Template()
      */
     public function indexAction()
-    {/*
+    { 
         $user = $this->get('security.context')->getToken()->getUser();
-        echo $user->getFirstName();*/
-        $user = 9;
-        $entities = $this->get("repository.Promo")->findByUser($user);
+        
+        $entities = $this->get("repository.Promo")->findByUserId($user->getId());
         
         $template = 'QwerPromoBundle:Promo:IndexPromo.html.switcher';
         return $this->render($template, array('entities' => $entities));        
@@ -68,9 +67,9 @@ class PromoController extends Controller
     public function newAction()
     {   
         $entity = new Promo();
-        $formBuilder = new PromoType();
-        $formBuilder->setContainer($this->get("service_container"));
-        $form = $this->createForm($formBuilder, $entity);
+        $formBuilder = $this->get("type.promo");
+        $form = $this->createForm($formBuilder, $entity, 
+                                    array("attr" => array("new" => true)));
         
         /*
         return array(
@@ -92,7 +91,8 @@ class PromoController extends Controller
     public function createAction(Request $request)
     {
         $entity  = new Promo();
-        $form = $this->createForm(new PromoType(), $entity);
+        $form = $this->createForm($this->get("type.promo"), $entity, 
+                                        array("attr" => array("new" => true)));
         $form->bindRequest($request);
         
         if ($form->isValid()) {
@@ -122,7 +122,8 @@ class PromoController extends Controller
             throw $this->createNotFoundException('Unable to find Promo entity.');
         }
 
-        $editForm = $this->createForm(new PromoType(), $entity);
+        $editForm = $this->createForm($this->get("type.promo")->isNew(false), $entity, 
+                                        array("attr" => array("new" => false)));
         $deleteForm = $this->createDeleteForm($id);
 
         $template = 'QwerPromoBundle:Promo:EditPromo.html.switcher';
@@ -148,7 +149,7 @@ class PromoController extends Controller
         }
         
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new PromoType(), $entity);
+        $editForm = $this->createForm($this->get("type.promo")->isNew(false), $entity );
         $editForm->bindRequest($request);
 
         if ($editForm->isValid()) {

@@ -1,4 +1,4 @@
-<?php $view->extend('::base.html.switcher') ?>
+<?php $view->extend('QwerPromoBundle::base.html.switcher') ?>
 
 <?php $view['slots']->start('page') ?>
 <div data-role="page" id="service-provider">

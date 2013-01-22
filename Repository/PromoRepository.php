@@ -2,6 +2,7 @@
 namespace Qwer\PromoBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use \MarketFusion\Bundle\DataBundle\Entity\User;
 
 /**
  * PromoRepository
@@ -21,9 +22,13 @@ class PromoRepository extends EntityRepository{
         return $this->findOneBy (array ('id' => $id));
     }    
     
-    public function findByUser ($userId)
+    public function findByUserId ($userId)
     {
         return $this->findBy(array('spId' => $userId));
+    }
+    
+    public function findAvailableUserServices(User $user){
+        $this->createQueryBuilder("UserBusinessService");
     }
 }
 

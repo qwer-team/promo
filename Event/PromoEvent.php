@@ -12,7 +12,9 @@ class PromoEvent extends Event
     function __construct($promo) {
         $this->promo = $promo;
     }
-
+    /**
+     * @return \Qwer\PromoBundle\Entity\Promo
+     */
     public function getPromo() {
         return $this->promo;
     }

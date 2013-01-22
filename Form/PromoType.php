@@ -6,44 +6,42 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 
 class PromoType extends AbstractType implements ContainerAwareInterface
 {
-    protected $container;
-    /**
-     * Sets the Container.
-     *
-     * @param ContainerInterface $container A ContainerInterface instance
-     *
-     * @api
-     */
-    function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
+    private $container;
+    private $isNew;
+    function __construct($isNew = true) {
+        $this->isNew = $isNew;
+    }
+    
+    public function isNew($isNew) {
+        $this->isNew = $isNew;
+        return $this;
     }
     
     public function buildForm(FormBuilder $builder, array $options)
     {
-        $builder
-//            ->add('id')
-        
-            ->add('locId')
-            ->add('title')
-            ->add('body')
-            ->add('disclaimer')
-            ->add('startDate', 'DatePicker')
-            ->add('datetime')
+        $amountAttr = array();
+        if(!$this->isNew){
+            $amountAttr = array( "attr"=> array("readonly" => false));
+        }
+        $builder        
+            ->add('locId', null, array("required" => false))
+            ->add('title', null, array('attr'=>array('class'=>'promoText'), "required" => false))
+            ->add('body', 'textarea', array('attr'=>array('class'=>'promoText'), "required" => false))
+            ->add('disclaimer', null, array("required" => false))
+            ->add('startDate', 'DatePicker', array("required" => false))
             ->add('endDate', 'DatePicker')
-            ->add('amount')
-            ->add('discountType')
-            ->add('quantity')
-//            ->add('status')
-            ->add('image')
-//            ->add('userService')
-            ->add('limitQuantity')
+            ->add('amount', null, $amountAttr)
+            ->add('discountType', null, array("required" => false))
+            ->add('quantity', null, array("required" => false))
+            ->add('imageObject', 'file', array("required" => false))
+            ->add('userService')
+            ->add('limitQuantity', null, array("required" => false))
         ;
     }
 
@@ -57,5 +55,9 @@ class PromoType extends AbstractType implements ContainerAwareInterface
     public function getName()
     {
         return 'qwer_bundle_promotype';
+    }
+
+    public function setContainer(ContainerInterface $container = null) {
+        $this->container = $container;
     }
 }
