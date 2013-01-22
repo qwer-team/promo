@@ -254,15 +254,15 @@ class Promo
         $this->imageObject = $imageObject;
     }
 
-    public function isValidPromotionLimitation(ExecutionContext $context){        
-        
+    public function isValidPromotionLimitation(ExecutionContext $context){
         if($this->limitQuantity=="" && $this->endDate==""){
-            
             $propertyPath = $context->getPropertyPath() . '.limitQuantity';
-
             $context->setPropertyPath($propertyPath);
-
-            $context->addViolation('At list one limitation should be specified', array(), null);
+            $context->addViolation(
+                                   'At list one limitation should be specified', 
+                                    array(), 
+                                    null
+                                  );
         }
     }
 }

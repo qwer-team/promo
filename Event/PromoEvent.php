@@ -7,6 +7,10 @@ use Symfony\Component\EventDispatcher\Event;
 
 class PromoEvent extends Event
 {
+    /**
+     *
+     * @var \Qwer\PromoBundle\Entity\Promo 
+     */
     protected $promo;
     
     function __construct($promo) {
@@ -22,9 +26,5 @@ class PromoEvent extends Event
     public function setPromo(Promo $promo) {
         $this->promo = $promo;
     }
-
-
     
 }
-
-?>

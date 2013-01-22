@@ -3,17 +3,22 @@
 namespace Qwer\PromoBundle\Form;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilder;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PromoType extends AbstractType implements ContainerAwareInterface
 {
+    /**
+     * @var \Symfony\Component\DependencyInjection\ContainerInterface
+     */
     private $container;
+    
+    /**
+     * @var boolean 
+     */
     private $isNew;
+    
     function __construct($isNew = true) {
         $this->isNew = $isNew;
     }
