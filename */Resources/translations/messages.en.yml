@@ -1,7 +1,0 @@
-promo:
-  create:
-    form:
-      submit: Create
-  update:
-    form:
-      submit: Update

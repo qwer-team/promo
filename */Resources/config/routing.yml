@@ -1,3 +1,0 @@
-qwer_promo_homepage:
-    pattern:  /routing/{name}
-    defaults: { _controller: QwerPromoBundle:Default:index }
