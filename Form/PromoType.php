@@ -25,7 +25,7 @@ class PromoType extends AbstractType implements ContainerAwareInterface
     
     public function buildForm(FormBuilder $builder, array $options)
     {
-        $amountAttr = array();
+        $amountAttr = array('required'  => false);
         if(!$this->isNew){
             $amountAttr = array( "attr"=> array("readonly" => false));
         }
@@ -36,11 +36,17 @@ class PromoType extends AbstractType implements ContainerAwareInterface
             ->add('disclaimer', null, array("required" => false))
             ->add('startDate', 'DatePicker', array("required" => false))
             ->add('endDate', 'DatePicker')
-            ->add('amount', null, $amountAttr)
-            ->add('discountType', null, array("required" => false))
+            ->add('amountMoney', null, array_merge($amountAttr,  array('attr' => array('class' => 'promoAmount1'))))
+            ->add('amountPercent', null, array_merge($amountAttr,  array('attr' => array('class' => 'promoAmount0'))))
+            ->add('discountType', 'choice', array(
+                    'choices'   => array('0' => '%', '1' => '$'),
+                    'required'  => false,
+                    'expanded' => 'radio buttons',
+                    'attr' => array('class' => 'promoAmount')
+                    ))
             ->add('quantity', null, array("required" => false))
             ->add('imageObject', 'file', array("required" => false))
-            ->add('userService')
+            ->add('userService', null, array("required" => false))
             ->add('limitQuantity', null, array("required" => false))
         ;
     }

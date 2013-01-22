@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+.ui-input-datebox input {
+    width: 90% !important;
+}

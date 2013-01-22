@@ -1,7 +1,0 @@
-<?php $view->extend('AuthenticationBundle::Page.html.switcher') ?>
-
-<?php $view['slots']->set('title', "Promo create"); ?>
-
-<?php $view['slots']->start('content') ?>
-    <?php $view['slots']->output('content_first') ?>
-<?php $view['slots']->stop() ?>

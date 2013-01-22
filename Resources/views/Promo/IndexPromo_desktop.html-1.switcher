@@ -31,7 +31,7 @@
  <div id="checkboxes" data-role="fieldcontain">
      <?php foreach ($entities as $entity): ?>
      
-        <div class="ui-bar ui-bar-c" data-role="navbar" >
+        <div class="ui-bar ui-bar-e" data-role="navbar" >
             
         <div class="ui-grid-a">
             
@@ -45,7 +45,7 @@
             <a href="#popupBasic" data-rel="popup" style="width: 100%">
                 <div class="ui-grid-b">
                     <div class="ui-block-a">
-                        <?php echo $entity->getAmount() ?>
+                        <?php echo $entity->getAmountMoney() ?>
                     </div>
                     <div class="ui-block-b">
                     </div>

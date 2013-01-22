@@ -61,12 +61,16 @@ class Promo
     private $endDate;
 
     /**
-     * @var integer $amount
+     * @var integer $amountMoney
      */
-    private $amount;
+    private $amountMoney;
+    /**
+     * @var integer $amountPercent
+     */
+    private $amountPercent;
 
     /**
-     * @var integer $discountType
+     * @var smallint $discountType
      */
     private $discountType;
 
@@ -178,13 +182,21 @@ class Promo
     public function setEndDate($endDate) {
         $this->endDate = $endDate;
     }
-
-    public function getAmount() {
-        return $this->amount;
+    
+    public function getAmountMoney() {
+        return $this->amountMoney;
     }
 
-    public function setAmount($amount) {
-        $this->amount = $amount;
+    public function setAmountMoney($amountMoney) {
+        $this->amountMoney = $amountMoney;
+    }
+
+    public function getAmountPercent() {
+        return $this->amountPercent;
+    }
+
+    public function setAmountPercent($amountPercent) {
+        $this->amountPercent = $amountPercent;
     }
 
     public function getDiscountType() {

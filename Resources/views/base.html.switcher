@@ -12,6 +12,7 @@
 
 		<link href="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/css/marketfusion.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
     <link href="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/css/netfusion.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
+    <link href="<?php print $view['assets']->getUrl('/bundles/qwerpromo/css/style.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
     
     <script src="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/js/marketfusion.js'); ?>?<?php print PROJECT_BUILD_VERSION ?>" type="text/javascript"></script>
     <script src="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/js/MarketFusionList.js'); ?>?<?php print PROJECT_BUILD_VERSION ?>" type="text/javascript"></script>

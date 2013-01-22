@@ -9,6 +9,9 @@
                 <value>isValidPromotionLimitation</value>
             </option>
         </constraint>
+        <property name="disclaimer">
+            <constraint name="NotBlank"/>
+        </property>
     </class>
     
 </constraint-mapping>

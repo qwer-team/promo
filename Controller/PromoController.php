@@ -70,13 +70,7 @@ class PromoController extends Controller
         $formBuilder = $this->get("type.promo");
         $form = $this->createForm($formBuilder, $entity, 
                                     array("attr" => array("new" => true)));
-        
-        /*
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );*/
-        
+                
         $template = 'QwerPromoBundle:Promo:NewPromo.html.switcher';
         return $this->render($template, array('form' => $form->createView()));        
     }
