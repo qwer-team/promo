@@ -5,3 +5,5 @@ promo:
   update:
     form:
       submit: Update
+  limitations:
+    validation: At list one limitation should be specified
