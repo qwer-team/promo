@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php print $view['slots']->get('title') ?></title>
+		<title><?php print $view['slots']->get('title'); ?></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/css/jquery.mobile-latest.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet"/>
@@ -10,7 +10,7 @@
 		<script src="<?php print $view['assets']->getUrl('/bundles/qwerpromo/js/tiny_mce/tiny_mce.js'); ?>?<?php print PROJECT_BUILD_VERSION ?>"></script>
 		<script src="<?php print $view['assets']->getUrl('/bundles/qwerpromo/js/promo.js'); ?>?<?php print PROJECT_BUILD_VERSION ?>"></script>
 
-		<link href="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/css/marketfusion.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
+    <link href="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/css/marketfusion.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
     <link href="<?php print $view['assets']->getUrl('/bundles/marketfusionjqm/css/netfusion.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
     <link href="<?php print $view['assets']->getUrl('/bundles/qwerpromo/css/style.css'); ?>?<?php print PROJECT_BUILD_VERSION ?>" rel="stylesheet" >
     

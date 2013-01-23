@@ -17,14 +17,16 @@ class PromoController extends Controller
     public function indexAction()
     { 
         $user = $this->get('security.context')->getToken()->getUser();
+    
+        $entityManager = $this->container->get('doctrine.orm.default_entity_manager');
         
-        $entities = $this->get("repository.Promo")
-                         ->findByUserId($user->getId());
+        $entities = $entityManager->getRepository("QwerPromoBundle:Promo")
+                                  ->findByUser($user);
         
         $template = 'QwerPromoBundle:Promo:IndexPromo.html.switcher';
         return $this->render($template, array('entities' => $entities));        
     }
-    
+/*    
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -42,11 +44,11 @@ class PromoController extends Controller
             'delete_form' => $deleteForm->createView(),
         );
     }
-
+*/
     public function newAction()
     {   
         $entity = new Promo();
-        $formBuilder = $this->get("type.promo");
+        $formBuilder = $this->container->get("type.promo");
         $form = $this->createForm($formBuilder, $entity);
         
         $template = 'QwerPromoBundle:Promo:NewPromo.html.switcher';
@@ -61,17 +63,15 @@ class PromoController extends Controller
         $form->bindRequest($request);
         
         if ($form->isValid()) {
-            
-            $event = new PromoEvent($entity);
+            $user = $this->container->get('security.context')
+                                    ->getToken()->getUser();
+            $event = new PromoEvent($entity, $user);
             $this->get('event_dispatcher')
                  ->dispatch('create.CreatePromo', $event);
             
-            return $this->redirect(
-                        $this->generateUrl(
-                                                'EditPromo', 
-                                                array('id' => $entity->getId())
-                                            )
-                                 );
+            $params =  array('id' => $entity->getId());
+            $url = $this->generateUrl('EditPromo', $params);
+            return $this->redirect($url);
         }
 
         $template = 'QwerPromoBundle:Promo:NewPromo.html.switcher';
@@ -81,7 +81,7 @@ class PromoController extends Controller
 
     public function editAction($id)
     {
-        $entity = $user = $this->get('repository.Promo')->get($id);
+        $entity = $user = $this->container->get('repository.Promo')->get($id);
 
         if (!$entity) {
            throw $this->createNotFoundException('Unable to find Promo entity.');
@@ -94,26 +94,26 @@ class PromoController extends Controller
                                 $entity, 
                                 array("attr" => array("new" => false))
                             );
-        $deleteForm = $this->createDeleteForm($id);
+//        $deleteForm = $this->createDeleteForm($id);
 
         $template = 'QwerPromoBundle:Promo:EditPromo.html.switcher';
         $params = array(
                         'entity'  => $entity,
                         'form'   => $editForm->createView(),
-                        'delete_form' => $deleteForm->createView(),
+//                        'delete_form' => $deleteForm->createView(),
                        );
         return $this->render( $template, $params);        
     }
 
     public function updateAction(Request $request, $id)
     {
-        $entity = $this->get('repository.Promo')->get($id);
+        $entity = $this->container->get('repository.Promo')->get($id);
 
         if (!$entity) {
            throw $this->createNotFoundException('Unable to find Promo entity.');
         }
         
-        $deleteForm = $this->createDeleteForm($id);
+//        $deleteForm = $this->createDeleteForm($id);
         $promopType =$this->get("type.promo")->isNew(false);
         $editForm = $this->createForm( $promopType, $entity);
         $editForm->bindRequest($request);
@@ -128,11 +128,11 @@ class PromoController extends Controller
         $params = array(
                         'entity'  => $entity,
                         'form'   => $editForm->createView(),
-                        'delete_form' => $deleteForm->createView(),
+//                        'delete_form' => $deleteForm->createView(),
                        );
         return $this->render($template, $params);        
     }
-    
+/*    
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
@@ -162,4 +162,5 @@ class PromoController extends Controller
             ->getForm()
         ;
     }
+ */
 }

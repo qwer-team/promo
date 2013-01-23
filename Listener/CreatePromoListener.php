@@ -10,21 +10,19 @@ class CreatePromoListener extends ContainerAware {
     public function onPromoEvent(PromoEvent $event)
     {
         $promo = $event->getPromo();
-        if(!is_null($promo->getImageObject()))
-        {
+        if(!is_null($promo->getImageObject())){
             $imageObject = $promo->getImageObject();
             $image = $this->container->get("Storage")
                                      ->save($imageObject->getPathname());
             $promo->setImage($image);
         }
         
-        $user = $this->container->get('security.context')
-                                ->getToken()->getUser();
+        $user = $event->getUser();
         $promo->setUser($user);
         
-        $entityManage = $this->container
+        $entityManager = $this->container
                           ->get('doctrine.orm.default_entity_manager');
-        $entityManage->persist($promo);
-        $entityManage->flush();
+        $entityManager->persist($promo);
+        $entityManager->flush();
     }
 }

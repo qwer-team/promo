@@ -4,10 +4,8 @@
                     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
     <class name="Qwer\PromoBundle\Entity\Promo">
-        <constraint name="Callback">
-            <option name="methods">
-                <value>isValidPromotionLimitation</value>
-            </option>
+        <constraint name="Qwer\PromoBundle\Form\Validator\PromoLimitations">
+            <option name="message">Promo.Limitations.Validation</option>
         </constraint>
         <property name="disclaimer">
             <constraint name="NotBlank"/>

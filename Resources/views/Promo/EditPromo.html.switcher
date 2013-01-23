@@ -3,13 +3,21 @@
 <?php $view['slots']->start('content_first') ?>
 
 	
-	<div class="ui-body ui-body-d">
-		<h3>
-			Promotions desinger
-		</h3>
-                <a href="<?php echo $view['router']->generate('Promo') ?>">
-                    back to promotion list</a>
-		<div data-theme="c">
+<div class="ui-bar ui-bar-c" data-role="header">
+    
+    <a href="<?php echo $view['router']->generate('Promo') ?>" 
+                                        data-icon="arrow-l" data-mini="false">
+        <?php echo $view['translator']->trans('Promo.BackToPromotionList') ?>
+    </a> 
+    
+    <h1>
+        <?php echo $view['translator']->trans('Promo.Desinger.PromotionsDesinger') ?>
+    </h1>
+    
+</div>
+
+<div data-theme="c">
+                    
     <form action="<?php print $view['router']->generate('UpdatePromo', array('id' => $entity->getId())) ?>" 
             method="post" data-ajax="false">
         <div data-role="collapsible-set" data-content-theme="d" data-theme="c" >
@@ -81,7 +89,7 @@
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a" style="width: 48%">
                             <input type="radio" name="radio-choice" id="radio-choice-1" 
-                                                value="0" <?php if($view['form']->row($form['limitQuantity'])) echo "checked='checked'"?>/>
+                                                value="0" />
                             <label for="radio-choice-1">
                                 <?php echo $view['translator']->trans('Promo.Desinger.Unlimited') ?>
                             </label>
@@ -89,13 +97,16 @@
                         <div class="ui-block-b" style="margin-left:2%">
                         </div>
                         <div class="ui-block-a" style="width: 48%">
+                            <?php $chekedClass = "" ?>
+                            <?php if(!is_null($form['limitQuantity'])) $chekedClass = "checked"?>
                             <input type="radio" name="radio-choice" 
-                                            id="radio-choice-2" value="1"  />
+                                            id="radio-choice-2" value="1" <?php echo $chekedClass ?>/>
                             <label for="radio-choice-2">
                                 <?php echo $view['translator']->trans('Promo.Desinger.LimitPromotionBy') ?>
                             </label>
                         </div>
                         <div class="ui-block-b" style="margin-left:2%">
+                            <?php echo $view['form']->errors($form['limitQuantity']) ?>
                             <?php echo $view['form']->row($form['limitQuantity']) ?>
                         </div>
                      </fieldset> 
@@ -168,6 +179,7 @@
          </div>
         
     </form>
-		</div>
-	</div>
+    
+</div>
+            
 <?php $view['slots']->stop() ?>

@@ -1,4 +1,4 @@
-Promo:
+Promo:  
   Desinger:
     Button:
       Save: Save
@@ -21,5 +21,20 @@ Promo:
     FinePrint: Fine Print
     Image: Image
   BackToPromotionList: Back
-  
+  Limitations:
+    Validation: At list one limitation should be specified
+  Promotions:
+    HeaderTitle: Promotions
+    Search: Search
+    Sort: Sort
+    Filter: Filter
+    New: New
+    Ended: Ended
+    Ends: 'Ends:'
+    Begins: 'Begins:'
+    PopUpMenu:
+      Send: Send
+      PostTo: Post to ...
+      Edit: Edit
+      Delete: Delete
     

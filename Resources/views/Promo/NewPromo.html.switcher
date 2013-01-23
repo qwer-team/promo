@@ -19,7 +19,7 @@
     
     <form action="<?php print $view['router']->generate('CreatePromo') ?>" 
                  enctype="multipart/form-data" method="post" data-ajax="false">
-        
+        <?php echo $view['form']->errors($form) ?>
         <div data-role="collapsible-set" data-content-theme="d" data-theme="c" >
             
             <div data-role="collapsible" data-collapsed="false">
@@ -74,7 +74,7 @@
                             <?php echo $view['form']->row($form['discountType']) ?>
                         </div>
                         <div class="ui-block-b" style="margin-left: 2%">
-                            <?php echo $view['form']->row($form['amountMoney']) ?>
+                            <?php echo $view['form']->row($form['amountMoney']) ?>                            
                             <?php echo $view['form']->row($form['amountPercent']) ?>
                         </div>
                     </fieldset>
@@ -104,6 +104,7 @@
                             </label>
                         </div>
                         <div class="ui-block-b" style="margin-left:2%">
+                            <?php echo $view['form']->errors($form['limitQuantity']) ?>
                             <?php echo $view['form']->row($form['limitQuantity']) ?>
                         </div>
                      </fieldset> 
@@ -127,6 +128,7 @@
                             <?php echo $view['form']->row($form['startDate']) ?>
                         </div>
                         <div class="ui-block-b" style="width: 48%; margin-left: 2%">
+                            <?php echo $view['form']->errors($form['endDate']) ?>
                             <?php echo $view['form']->row($form['endDate']) ?>
                         </div>
                     </div>
@@ -153,7 +155,6 @@
                 <h3>
                     <?php echo $view['translator']->trans('Promo.Desinger.Image') ?>
                 </h3>
-                
                 <?php echo $view['form']->row($form['imageObject']) ?>
                 
             </div>

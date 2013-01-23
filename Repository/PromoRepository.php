@@ -22,8 +22,8 @@ class PromoRepository extends EntityRepository{
         return $this->findOneBy (array ('id' => $id));
     }    
     
-    public function findByUserId ($userId)
+    public function findByUser ($user)
     {
-        return $this->findBy(array('userId' => $userId));
+        return $this->findBy(array('user' => $user));
     }
 }

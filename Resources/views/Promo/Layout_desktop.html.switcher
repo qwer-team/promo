@@ -1,4 +1,4 @@
-<?php $view->extend('QwerPromoBundle::Page.html.switcher') ?>
+<?php $view->extend('QwerPromoBundle::Page_desktop.html.switcher') ?>
 
 <?php $view['slots']->set('title', "Promo create"); ?>
 

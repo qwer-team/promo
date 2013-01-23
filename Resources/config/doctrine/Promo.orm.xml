@@ -20,7 +20,7 @@
         </one-to-many>  -->
         <field name="title" type="string" column="title" length="200"/>
         <field name="body" type="string" column="body" length="200"/>
-        <field name="disclaimer" type="string" column="disclaimer" length="500"/>
+        <field name="disclaimer" type="string" column="disclaimer" length="500" nullable="true"/>
         <field name="startDate" type="datetime" column="start_date"/>
         <field name="endDate" type="datetime" column="end_date" nullable="true"/>
         <field name="amountMoney" type="integer" column="amount_money" nullable="true"/>

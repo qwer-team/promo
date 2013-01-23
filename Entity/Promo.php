@@ -253,16 +253,4 @@ class Promo
     public function setImageObject(UploadedFile $imageObject) {
         $this->imageObject = $imageObject;
     }
-
-    public function isValidPromotionLimitation(ExecutionContext $context){
-        if($this->limitQuantity=="" && $this->endDate==""){
-            $propertyPath = $context->getPropertyPath() . '.limitQuantity';
-            $context->setPropertyPath($propertyPath);
-            $context->addViolation(
-                                   'At list one limitation should be specified', 
-                                    array(), 
-                                    null
-                                  );
-        }
-    }
 }

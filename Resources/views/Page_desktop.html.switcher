@@ -14,14 +14,13 @@
 	
 	<div data-role="content">
 	
-<!--		<div class="content-left" style="float: left;">
-      <?php /*if($view['slots']->has('left')): ?>
+    <div class="content-left" style="float: left;">
+      <?php if($view['slots']->has('left')): ?>
       <?php print $view['slots']->get('left') ?>
       <?php else: ?>
 			<?php print $view['actions']->render('AuthenticationBundle:Widget:Left') ?>
-      <?php endif; */?>
+      <?php endif; ?>
 		</div>
--->		
 		<div class="content-middle" style="float: left;">
       <?php if($view['slots']->has('content')): ?>
       <?php print $view['slots']->get('content') ?>
@@ -30,14 +29,13 @@
       <?php endif; ?>
 		</div>
 		
-<!--		<div class="content-right" style="float: right;">
-      <?php /*if($view['slots']->has('right')): ?>
+	<div class="content-right" style="float: right;">
+      <?php if($view['slots']->has('right')): ?>
       <?php print $view['slots']->get('right') ?>
       <?php else: ?>
 			<?php print $view['actions']->render('AuthenticationBundle:Widget:Right') ?>
-      <?php endif; */ ?>
+      <?php endif;  ?>
 		</div>
--->		
 	</div>
 	
 	<div data-role="footer">

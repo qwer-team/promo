@@ -1,5 +1,10 @@
 @charset "utf-8";
-
+a.active span.ui-btn-inner{
+    background: greenyellow;
+}
+a.expired span.ui-btn-inner{
+    background: pink;
+}
 input.promo-date {
     width: 90% !important;
 }
@@ -17,4 +22,23 @@ input.promo-date {
     overflow:hidden;
     white-space:nowrap;
     outline:0!important
+}
+.ui-listview_custom__item-left{
+    width: 100% !important;    
+    margin-top: 4px;
+}
+.ui-listview_custom__item-left .ui-listview{
+    margin: 0 !important;
+}
+.ui-listview_custom__item-left .ui-listview .no-padding{
+    height: 92px;
+}
+.ui-listview_custom__item-left .ui-btn-inner.ui-btn-corner-all{
+    padding-top: 5em !important;
+}
+.ui-listview_custom__item-left.desktop .ui-btn-inner.ui-btn-corner-all .ui-icon.ui-icon-shadow{
+    left: 35% !important;
+}
+.ui-listview_custom__item-left .ui-btn-inner.ui-btn-corner-all .ui-icon.ui-icon-shadow{
+    left: 40% !important;
 }

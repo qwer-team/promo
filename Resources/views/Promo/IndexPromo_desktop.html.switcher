@@ -1,4 +1,4 @@
-<?php $view->extend('QwerPromoBundle:Promo:Layout.html.switcher') ?>
+<?php $view->extend('QwerPromoBundle:Promo:Layout_desktop.html.switcher') ?>
 
 <?php $view['slots']->start('content_first') ?>
 
@@ -44,7 +44,7 @@
         <div class="ui-grid-a">
             
             <div class="ui-block-a" style="width:10%;">
-                <div class="ui-listview_custom__item-left">
+                <div class="ui-listview_custom__item-left desktop">
                     <fieldset data-role="listview">
                         <input type="checkbox" data-mini="true" name="contact"
                                id="contact_<?php echo $entity->getId();?>" 
@@ -57,7 +57,7 @@
             </div>
             
             <div class="ui-block-b"  style="width:90%">
-                
+
               <?php if (is_object($entity->getEndDate()) &&
                       time() > strtotime($entity->getEndDate()->format("m/d/y h:m a"))):?>
                     <?php $promoStatus = 'expired' ?>

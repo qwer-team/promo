@@ -6,8 +6,9 @@ $(document).live( 'pagebeforecreate',function(event){
                 selector : "textarea.promoText",
                 theme : "advanced",
                 width: 570,
-                theme_advanced_buttons1 : "bold, italic, |, forecolor, backcolor",
-                theme_advanced_statusbar_location: "none"                
+                theme_advanced_buttons1 : "bold, italic, |, fontselect, fontsizeselect, |, forecolor, backcolor",
+                theme_advanced_statusbar_location: "none",
+                content_css : "/bundles/qwerpromo/css/tinymce.css",
             });
                 tinyMCE.init({
                 mode : "input.promoText",
@@ -15,8 +16,9 @@ $(document).live( 'pagebeforecreate',function(event){
                 theme : "advanced",
                 width: 570,
                 height: 5,
-                theme_advanced_buttons1 : "bold, italic, |, forecolor, backcolor",
-                theme_advanced_statusbar_location: "none"                
+                theme_advanced_buttons1 : "bold, italic, |, fontselect, fontsizeselect, |, forecolor, backcolor",
+                theme_advanced_statusbar_location: "none",
+                content_css : "/bundles/qwerpromo/css/tinymce.css",
             });
         });
         $(".promoAmount input").bind("change", function(){            
