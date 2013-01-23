@@ -4,12 +4,13 @@
 
 <div class="ui-bar ui-bar-c" data-role="header">
     
-    <a href="<?php echo $view['router']->generate('Promo') ?>" data-icon="arrow-l" data-mini="false">
-        <?php echo $view['translator']->trans('promo.BackToPromotionList') ?>
+    <a href="<?php echo $view['router']->generate('Promo') ?>" 
+                                        data-icon="arrow-l" data-mini="false">
+        <?php echo $view['translator']->trans('Promo.BackToPromotionList') ?>
     </a> 
     
     <h1>
-        <?php echo $view['translator']->trans('promo.desinger.PromotionsDesinger') ?>
+        <?php echo $view['translator']->trans('Promo.Desinger.PromotionsDesinger') ?>
     </h1>
     
 </div>
@@ -22,24 +23,24 @@
         <div data-role="collapsible-set" data-content-theme="d" data-theme="c" >
             
             <div data-role="collapsible" data-collapsed="false">
-                
                 <h3>
-                    <?php echo $view['translator']->trans('promo.desinger.LogoAndHeader') ?>
+                    <?php echo $view['translator']->trans('Promo.Desinger.LogoAndHeader') ?>
                 </h3>
                 
                 <fieldset data-role="controlgroup" data-mini="false">
                         <legend>
-                            <?php echo $view['translator']->trans('promo.desinger.CompanyName&Logo') ?>                            
+                            <?php echo $view['translator']
+                                ->trans('Promo.Desinger.CompanyName&Logo') ?>                            
                         </legend>
                     
                         <input type="radio" name="radio-choice" id="radio-choice-1" value="0" checked="checked" />
                         <label for="radio-choice-1">
-                            <?php echo $view['translator']->trans('promo.desinger.UseMyCompanyName') ?>
+                            <?php echo $view['translator']->trans('Promo.Desinger.UseMyCompanyName') ?>
                         </label>
 
                         <input type="radio" name="radio-choice" id="radio-choice-2" value="1"  />
                         <label for="radio-choice-2">
-                            <?php echo $view['translator']->trans('promo.desinger.UseThisName') ?>
+                            <?php echo $view['translator']->trans('Promo.Desinger.UseThisName') ?>
                         </label>
                 </fieldset>
                 
@@ -48,9 +49,8 @@
             </div>
             
             <div data-role="collapsible">
-                
                 <h3>
-                    <?php echo $view['translator']->trans('promo.desinger.BodyText') ?>
+                    <?php echo $view['translator']->trans('Promo.Desinger.BodyText') ?>
                 </h3>
                 
                 <div data-role="fieldcontain">
@@ -59,15 +59,14 @@
                 
             </div>
             
-            <div data-role="collapsible" data-collapsed="false">
-                
+            <div data-role="collapsible">
                 <h3>
-                    <?php echo $view['translator']->trans('promo.desinger.DiscountAndAvailability') ?>
+                    <?php echo $view['translator']->trans('Promo.Desinger.DiscountAndAvailability') ?>
                 </h3>
                 
                 <fieldset data-role="controlgroup">
                     <legend>
-                        <?php echo $view['translator']->trans('promo.desinger.EnterDiscountRoute') ?>
+                        <?php echo $view['translator']->trans('Promo.Desinger.EnterDiscountRoute') ?>
                     </legend>
                     
                     <fieldset class="ui-grid-a">
@@ -83,62 +82,99 @@
                 </fieldset>
 
                 <fieldset data-role="controlgroup">
-                    <legend><?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Enter Availability</legend>                                            
+                    <legend>
+                        <?php echo $view['translator']->trans('Promo.Desinger.EnterAvailability') ?>
+                    </legend> 
+                    
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a" style="width: 48%">
-                        <input type="radio" name="radio-choice" id="radio-choice-1" value="choice-1" checked="checked" />
-                        <label for="radio-choice-1"><?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Unlimited</label>
+                            <input type="radio" name="radio-choice" id="radio-choice-1" 
+                                                value="0" />
+                            <label for="radio-choice-1">
+                                <?php echo $view['translator']->trans('Promo.Desinger.Unlimited') ?>
+                            </label>
                         </div>
                         <div class="ui-block-b" style="margin-left:2%">
                         </div>
                         <div class="ui-block-a" style="width: 48%">
-                        <input type="radio" name="radio-choice" id="radio-choice-2" value="choice-2"  />
-                        <label for="radio-choice-2"><?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Limit promotion by</label>
+                            <input type="radio" name="radio-choice" 
+                                            id="radio-choice-2" value="1"  />
+                            <label for="radio-choice-2">
+                                <?php echo $view['translator']->trans('Promo.Desinger.LimitPromotionBy') ?>
+                            </label>
                         </div>
                         <div class="ui-block-b" style="margin-left:2%">
                             <?php echo $view['form']->row($form['limitQuantity']) ?>
                         </div>
-                     </fieldset>   
+                     </fieldset> 
+                    
                 </fieldset>
+                
             </div>
-            <div data-role="collapsible" data-collapsed="false">
+            
+            <div data-role="collapsible">
                 <h3>
-                    <?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Time And Place
+                    <?php echo $view['translator']->trans('Promo.Desinger.TimeAndPlace') ?>
                 </h3>
+                
                 <fieldset data-role="controlgroup">
-                    <legend><?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Other Promo Parametrs</legend>                                            
-                        <div class="ui-grid-a">
-                        <div class="ui-block-a" style="width: 45%">
+                    <legend>
+                        <?php echo $view['translator']->trans('Promo.Desinger.OtherPromoParametrs') ?>
+                    </legend>                                            
+                    
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a" style="width: 48%">
                             <?php echo $view['form']->row($form['startDate']) ?>
                         </div>
-                        <div class="ui-block-b" style="width: 45%; margin-left: 5%">
+                        <div class="ui-block-b" style="width: 48%; margin-left: 2%">
                             <?php echo $view['form']->row($form['endDate']) ?>
                         </div>
+                    </div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <?php echo $view['form']->row($form['locationId']) ?>
                         </div>
-                        <div class="ui-grid-solo">
-                            <div class="ui-block-a">
-                            <?php echo $view['form']->row($form['locId']) ?>
-                            </div>
-                        </div>
+                    </div>
+                    
                 </fieldset>
+                
             </div>
-            <div data-role="collapsible" data-collapsed="false">
+            
+            <div data-role="collapsible">
                 <h3>
-                    <?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Fine Print
+                    <?php echo $view['translator']->trans('Promo.Desinger.FinePrint') ?>
                 </h3>
+                
+                <?php echo $view['form']->row($form['disclaimer']) ?>
+                
             </div>
-            <div data-role="collapsible" data-collapsed="false">
+            
+            <div data-role="collapsible">
                 <h3>
-                    <?php echo $view['translator']->trans('promo.desinger.Promotions_desinger') ?>Image
+                    <?php echo $view['translator']->trans('Promo.Desinger.Image') ?>
                 </h3>
+                
                 <?php echo $view['form']->row($form['imageObject']) ?>
+                
             </div>
+            
         </div>                                    
                 <?php echo $view['form']->rest($form) ?>
-                <div data-role="controlgroup" data-type="horizontal">
-                    <input type="submit" id="submit" 
-                           value="<?php echo $view['translator']->trans('promo.update.form.submit') ?>" />
-                </div>
+        <div class="ui-grid-b">
+            <div class="ui-block-a">
+                <input type="submit" id="submit" 
+                       value="<?php echo $view['translator']->trans('Promo.Desinger.Button.Save') ?>" />
+            </div>
+            <div class="ui-block-b">
+                <input type="button" 
+                       value="<?php echo $view['translator']->trans('Promo.Desinger.Button.Cancel') ?>" />
+            </div>
+            <div class="ui-block-c">
+                <input type="button" 
+                       value="<?php echo $view['translator']->trans('Promo.Desinger.Button.Refresh') ?>" />
+            </div>
+         </div>
+        
     </form>
     
 </div>

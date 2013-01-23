@@ -10,15 +10,15 @@
         <id name="id" type="integer" column="id">
             <generator strategy="IDENTITY"/>
         </id>
-        <field name="spId" type="integer" column="sp_id" nullable="true"/>
-        <many-to-one field="sp" target-entity="MarketFusion\Bundle\DataBundle\Entity\User" mapped-by="id">
-            <join-column name="sp_id" referenced-column-name="id" />            
+<!--        <field name="userId" type="integer" column="user_id" nullable="true"/>-->
+        <many-to-one field="user" target-entity="MarketFusion\Bundle\DataBundle\Entity\User" mapped-by="id">
+            <join-column name="user_id" referenced-column-name="id" />            
         </many-to-one>
-        <field name="locId" type="integer" column="loc_id" nullable="true"/>
+        <field name="locationId" type="integer" column="location_id" nullable="true"/>
 <!--        <one-to-many field="promoLocation" target-entity="some Entity" mapped-by="id">
-            <join-column name="locId" referenced-column-name="id" />            
+            <join-column name="location_id" referenced-column-name="id" />            
         </one-to-many>  -->
-        <field name="title" type="string" column="title" length="200" nullable="true"/>
+        <field name="title" type="string" column="title" length="200"/>
         <field name="body" type="string" column="body" length="200"/>
         <field name="disclaimer" type="string" column="disclaimer" length="500"/>
         <field name="startDate" type="datetime" column="start_date"/>
@@ -26,13 +26,13 @@
         <field name="amountMoney" type="integer" column="amount_money" nullable="true"/>
         <field name="amountPercent" type="integer" column="amount_percent" nullable="true"/>
         <field name="discountType" type="smallint" column="discount_type" />
-        <field name="quantity" type="integer" column="quantity"/>
+        <field name="quantity" type="integer" column="quantity" nullable="true"/>
         <field name="status" type="smallint" column="status"/>
         <field name="image" type="string" column="image" length="255" nullable="true"/>
-        <field name="serviceId" type="integer" column="service_id" nullable="true"/>
+<!--        <field name="serviceId" type="integer" column="service_id" nullable="true"/>-->
         <many-to-one field="userService" 
                      target-entity="MarketFusion\Bundle\DataBundle\Entity\UserBusinessService" mapped-by="id">
-            <join-column name="promo_service_id" referenced-column-name="id" />            
+            <join-column name="service_id" referenced-column-name="id" />            
         </many-to-one>
         <field name="limitQuantity" type="integer" column="limit_quantity" nullable="true"/>      
 

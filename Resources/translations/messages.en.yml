@@ -1,7 +1,10 @@
-promo:
-  desinger:
+Promo:
+  Desinger:
+    Button:
+      Save: Save
+      Cancel: Cancel
+      Refresh: Refresh Promo
     PromotionsDesinger: Promotions Desinger
-    createSubmit: Create
     updateSubmit: Update
     LogoAndHeader: Logo And Header
     CompanyName&Logo: Company Name and/or Logo
@@ -9,7 +12,14 @@ promo:
     UseThisName: 'Use This Name (enter here):'
     BodyText: Body Text
     DiscountAndAvailability: Discount and Availability
-    Enter Discount Route: 'Enter Discount Route:'
+    EnterDiscountRoute: 'Enter Discount Route:'
+    EnterAvailability: Enter Availability
+    Unlimited: Unlimited
+    LimitPromotionBy: Limit promotion by
+    TimeAndPlace: Time And Place
+    OtherPromoParametrs: Other Promo Parametrs
+    FinePrint: Fine Print
+    Image: Image
   BackToPromotionList: Back
   
     

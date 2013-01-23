@@ -18,18 +18,14 @@ class Promo
     private $id;
 
     /**
-     * @var integer $spId
-     */
-    private $spId;
-    /**
      * @var MarketFusion\Bundle\DataBundle\Entity\User
      */
-    private $sp;
+    private $user;
 
     /**
-     * @var integer $locId
+     * @var integer $locationId
      */
-    private $locId;
+    private $locationId;
     /*
      * @var ???
      */
@@ -119,28 +115,20 @@ class Promo
         $this->id = $id;
     }
 
-    public function getSpId() {
-        return $this->spId;
+    public function getUser() {
+        return $this->user;
     }
 
-    public function setSpId($spId) {
-        $this->spId = $spId;
+    public function setUser($user) {
+        $this->user = $user;
     }
 
-    public function getSp() {
-        return $this->sp;
+    public function getLocationId() {
+        return $this->locationId;
     }
 
-    public function setSp($sp) {
-        $this->sp = $sp;
-    }
-
-    public function getLocId() {
-        return $this->locId;
-    }
-
-    public function setLocId($locId) {
-        $this->locId = $locId;
+    public function setLocationId($locationId) {
+        $this->locationId = $locationId;
     }
 
     public function getTitle() {

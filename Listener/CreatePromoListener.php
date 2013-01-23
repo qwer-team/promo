@@ -20,7 +20,7 @@ class CreatePromoListener extends ContainerAware {
         
         $user = $this->container->get('security.context')
                                 ->getToken()->getUser();
-        $promo->setSp($user);
+        $promo->setUser($user);
         
         $entityManage = $this->container
                           ->get('doctrine.orm.default_entity_manager');

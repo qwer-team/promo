@@ -36,12 +36,12 @@ class PromoType extends AbstractType implements ContainerAwareInterface
             $amountAttr = array( "attr"=> array("readonly" => false));
         }
         $builder        
-            ->add('locId', null, array("required" => false))
+            ->add('locationId', null, array("required" => false))
             ->add('title', null, array('attr'=>array('class'=>'promoText'), "required" => false))
             ->add('body', 'textarea', array('attr'=>array('class'=>'promoText'), "required" => false))
             ->add('disclaimer', null, array("required" => false))
-            ->add('startDate', 'DatePicker', array("required" => false))
-            ->add('endDate', 'DatePicker')
+            ->add('startDate', 'DatePicker', array("required" => false, 'attr' => array('class' => 'promo-date')))
+            ->add('endDate', 'DatePicker', array('format' => 'SHORT'))
             ->add('amountMoney', null, array_merge($amountAttr,  array('attr' => array('class' => 'promoAmount1'))))
             ->add('amountPercent', null, array_merge($amountAttr,  array('attr' => array('class' => 'promoAmount0'))))
             ->add('discountType', 'choice', array(
@@ -50,7 +50,6 @@ class PromoType extends AbstractType implements ContainerAwareInterface
                     'expanded' => 'radio buttons',
                     'attr' => array('class' => 'promoAmount')
                     ))
-            ->add('quantity', null, array("required" => false))
             ->add('imageObject', 'file', array("required" => false))
             ->add('userService', null, array("required" => false))
             ->add('limitQuantity', null, array("required" => false))

@@ -1,5 +1,20 @@
 @charset "utf-8";
 
-.ui-input-datebox input {
+input.promo-date {
     width: 90% !important;
+}
+.ui-datebox-container  .ui-btn-icon-notext{
+    top: 0.3em !important;
+}
+.ui-datebox-container .ui-header .ui-title {
+    min-height:1.1em;
+    text-align:center;
+    font-size:16px;
+    display:block;
+    margin:0 30% .8em !important;
+    padding-top:0.3em !important;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    white-space:nowrap;
+    outline:0!important
 }
