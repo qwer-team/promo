@@ -21,6 +21,7 @@
 			<?php print $view['actions']->render('AuthenticationBundle:Widget:Left') ?>
       <?php endif; ?>
 		</div>
+            
 		<div class="content-middle" style="float: left;">
       <?php if($view['slots']->has('content')): ?>
       <?php print $view['slots']->get('content') ?>

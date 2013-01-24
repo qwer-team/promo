@@ -4,7 +4,7 @@
 
 <div class="ui-bar ui-bar-c" data-role="header">
     <h3>
-        <?php echo $view['translator']->trans('Promo.Promotions.HeaderTitle') ?>
+        <?php echo $view['translator']->trans('Promo.Promotions.HeaderTitle') ?>dev
     </h3>
 </div>
 
@@ -12,31 +12,34 @@
 <div data-role="navbar" data-iconpos="top">
     <ul>
         <li>
-            <a href="#" data-transition="slidefade" data-icon="search">
+            <a href="#searchPromotions" data-icon="search" data-position-to="#promotionList" 
+               data-rel="popup">
                 <?php echo $view['translator']->trans('Promo.Promotions.Search') ?>
             </a>                     
         </li>
         <li>
-            <a href="#" data-transition="slidefade" data-icon="grid">
+            <a href="#sortPromotions" data-icon="grid" data-position-to="#promotionList"
+               data-rel="popup">
                 <?php echo $view['translator']->trans('Promo.Promotions.Sort') ?>
             </a>                     
         </li>
         <li>
-            <a href="#" data-transition="slidefade" data-icon="grid">
+            <a href="#filterPromotions" data-icon="grid" data-position-to="#promotionList"
+               data-rel="popup">
                 <?php echo $view['translator']->trans('Promo.Promotions.Filter') ?>
             </a>                     
         </li>
         <li class="ui-block-b">
             <a href="<?php echo $view['router']->generate('NewPromo') ?>"
-                 data-transition="slidefade" data-icon="plus">
+               data-transition="slidefade" data-icon="plus">
                 <?php echo $view['translator']->trans('Promo.Promotions.New') ?>
             </a>                     
         </li>
     </ul>
 </div>
 
-<div id="checkboxes" data-role="fieldcontain">
-     
+<div id="promotionList" data-role="fieldcontain">
+    
     <?php foreach ($entities as $entity): ?>
 
     <div class="ui-bar ui-bar-c" data-role="navbar">
@@ -67,7 +70,9 @@
                     <?php $promoStatus = '' ?>
               <?php endif; ?>
   
-                <a href="#popupBasic" class ="<?php echo $promoStatus ?>"data-rel="popup" style="width: 98%">
+                <a href="#popupMenu_<?php echo $entity->getId() ?>" 
+                   class ="<?php echo $promoStatus ?>" data-rel="popup" 
+                   data-position-to='#snached_<?php echo $entity->getId() ?>' style="width: 98%">
                 <div class="ui-grid-b">
                     <div class="ui-block-a">
                         <?php echo $entity->getAmountMoney() ?>
@@ -83,7 +88,7 @@
                     <div class="ui-block-b">
                         <?php echo "Location..." ?>
                     </div>
-                    <div class="ui-block-c">
+                    <div class="ui-block-c" id="snached_<?php echo $entity->getId() ?>">
                         <?php echo $entity->getQuantity() ?> snached
                     </div>
                 </div>
@@ -108,7 +113,7 @@
             
     </div>
 
-    <div class="ui-mini" data-role="popup" id="popupBasic">
+    <div class="ui-mini" data-role="popup" id="popupMenu_<?php echo $entity->getId() ?>">
 
         <ul data-role="listview" data-divider-theme="b" data-inset="true">
             <li data-theme="">
@@ -137,6 +142,26 @@
 
     <?php endforeach; ?>
 </div>
+
+    <div class="ui-mini" data-role="popup" id="sortPromotions">
+        
+        Sort
+        
+    </div>    
+
+    <div class="ui-mini" data-role="popup" id="filterPromotions">
+        
+        Filter
+
+    </div>    
+
+    <div class="ui-mini" data-role="popup" id="searchPromotions">
+
+                <a href="#" data-transition="none">
+                    Search
+                </a>
+
+    </div>    
 
 
 <?php $view['slots']->stop() ?>

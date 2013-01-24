@@ -67,7 +67,7 @@
                     <?php $promoStatus = '' ?>
               <?php endif; ?>
   
-                <a href="#popupBasic" class ="<?php echo $promoStatus ?>"data-rel="popup" style="width: 98%">
+                <a href="#popupMenu_<?php echo $entity->getId() ?>" class ="<?php echo $promoStatus ?>"data-rel="popup" style="width: 98%">
                 <div class="ui-grid-b">
                     <div class="ui-block-a">
                         <?php echo $entity->getAmountMoney() ?>
@@ -108,7 +108,7 @@
             
     </div>
 
-    <div class="ui-mini" data-role="popup" id="popupBasic">
+    <div class="ui-mini" data-role="popup" id="popupMenu_<?php echo $entity->getId() ?>">
 
         <ul data-role="listview" data-divider-theme="b" data-inset="true">
             <li data-theme="">

@@ -89,7 +89,7 @@
                     <fieldset class="ui-grid-a">
                         <div class="ui-block-a" style="width: 48%">
                             <input type="radio" name="radio-choice" id="radio-choice-1" 
-                                                value="0" />
+                                   checked="checked" value="0" />
                             <label for="radio-choice-1">
                                 <?php echo $view['translator']->trans('Promo.Desinger.Unlimited') ?>
                             </label>
@@ -98,7 +98,9 @@
                         </div>
                         <div class="ui-block-a" style="width: 48%">
                             <?php $chekedClass = "" ?>
-                            <?php if(!is_null($form['limitQuantity'])) $chekedClass = "checked"?>
+                            <?php if(!is_null($form['limitQuantity']->get('value'))) 
+                                $chekedClass = "checked = 'checked' "?>
+                            
                             <input type="radio" name="radio-choice" 
                                             id="radio-choice-2" value="1" <?php echo $chekedClass ?>/>
                             <label for="radio-choice-2">

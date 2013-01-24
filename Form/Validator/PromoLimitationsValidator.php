@@ -7,7 +7,7 @@ use Symfony\Component\Validator\ConstraintValidator;
 class PromoLimitationsValidator extends ConstraintValidator
 {
     public function isValid($value, Constraint $constraint) {
-                echo $constraint->message;
+        
         if($value->getLimitQuantity()=="" && $value->getEndDate()==""){
             
             $this->setMessage($constraint->message);
