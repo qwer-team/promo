@@ -6,7 +6,19 @@ use Symfony\Component\Validator\ConstraintValidator;
 
 class PromoLimitationsValidator extends ConstraintValidator
 {
-    public function isValid($value, Constraint $constraint) {
+    /**
+     * For BC.
+     * @param type $value
+     * @param \Symfony\Component\Validator\Constraint $constraint
+     * @return boolean
+     */
+    public function valid($value, Constraint $constraint) 
+    {
+        return $this->isValid($value, $constraint);
+    }
+    
+    public function isValid($value, Constraint $constraint) 
+    {
         
         if($value->getLimitQuantity()=="" && $value->getEndDate()==""){
             
