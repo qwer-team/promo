@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraint;
 class PromoLimitations extends Constraint
 {
     public $message = 'Promo.Limitations.Validation'; 
-    
+    public $dateMessage = 'Promo.Limitations.EndDate';
     /**
      * Error message code for translation
      * 
@@ -18,6 +18,10 @@ class PromoLimitations extends Constraint
         return $this->message;
     }
     
+    public function getDateMessage(){
+        return $this->dateMessage;
+    }
+
     /**
      * (non-PHPdoc)
      * @see Symfony\Component\Validator.Constraint::getTargets()

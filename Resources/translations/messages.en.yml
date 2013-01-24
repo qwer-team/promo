@@ -23,6 +23,7 @@ Promo:
   BackToPromotionList: Back
   Limitations:
     Validation: At list one limitation should be specified
+    EndDate: enter the end date or...
   Promotions:
     HeaderTitle: Promotions
     Search: Search
