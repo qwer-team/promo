@@ -104,7 +104,6 @@
                             </label>
                         </div>
                         <div class="ui-block-b" style="margin-left:2%">
-                            <?php echo $view['form']->errors($form['limitQuantity']) ?>
                             <?php echo $view['form']->row($form['limitQuantity']) ?>
                         </div>
                      </fieldset> 
@@ -128,7 +127,6 @@
                             <?php echo $view['form']->row($form['startDate']) ?>
                         </div>
                         <div class="ui-block-b" style="width: 48%; margin-left: 2%">
-                            <?php echo $view['form']->errors($form['endDate']) ?>
                             <?php echo $view['form']->row($form['endDate']) ?>
                         </div>
                     </div>
